@@ -15,4 +15,5 @@ Pod::Spec.new do |s|
   s.platform = :ios, '5.0'
   s.source_files = 'PublicAutomation/**/*.{h,m}'
   s.requires_arc = true
+  s.xcconfig = { 'OTHER_CFLAGS' => '-DDISABLE_PA_LOGGING' }
 end

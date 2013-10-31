@@ -39,6 +39,7 @@
 		C194256215D9460F004FC314 /* KIFTypist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIFTypist.m; sourceTree = "<group>"; };
 		C194256415D949CE004FC314 /* CGGeometry-KIFAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CGGeometry-KIFAdditions.h"; sourceTree = "<group>"; };
 		C1FFB24815DCCECC00CACB04 /* PALoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PALoader.m; sourceTree = "<group>"; };
+		F8D883FA18229E9400CC7C38 /* PALogging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PALogging.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				C1FFB24815DCCECC00CACB04 /* PALoader.m */,
+				F8D883FA18229E9400CC7C38 /* PALogging.h */,
 				C194256415D949CE004FC314 /* CGGeometry-KIFAdditions.h */,
 				C194256115D9460F004FC314 /* KIFTypist.h */,
 				C194256215D9460F004FC314 /* KIFTypist.m */,
