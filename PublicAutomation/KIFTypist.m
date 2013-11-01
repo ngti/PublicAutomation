@@ -10,6 +10,7 @@
 
 #import "UIAutomationBridge.h"
 #import "CGGeometry-KIFAdditions.h"
+#import "PALogging.h"
 
 const NSTimeInterval KEYSTROKE_DELAY = 0.05f;
 
@@ -48,7 +49,7 @@ const NSTimeInterval KEYSTROKE_DELAY = 0.05f;
 // Based on [KIFTestStep stepToEnterText:intoViewWithAccessibilityLabel:traits:expectedResult:]
 + (BOOL)enterText:(NSString *)text;
 {
-    NSLog( @"enterText: %@", text);
+    DLog( @"enterText: %@", text);
     for (NSUInteger characterIndex = 0; characterIndex < [text length]; characterIndex++) {
         NSString *characterString = [text substringWithRange:NSMakeRange(characterIndex, 1)];
         

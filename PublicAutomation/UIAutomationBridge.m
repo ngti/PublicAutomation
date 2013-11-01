@@ -8,6 +8,7 @@
 #import "UIAutomationBridge.h"
 #import "UIAutomation.h"
 #import "KIFTypist.h"
+#import "PALogging.h"
 
 #import "CGGeometry-KIFAdditions.h"
 
@@ -30,7 +31,7 @@
 }
 
 + (BOOL) typeIntoKeyboard:(NSString *)string {
-    NSLog( @"typing into keyboard: %@", string );
+    DLog(@"typing into keyboard: %@", string );
     return [KIFTypist enterText:string];
 }
 
@@ -47,7 +48,7 @@
     CGPoint tapPointInWindowCoords = [view convertPoint:point toView:[view window]];
     CGPoint tapPointInScreenCoords = [[view window] convertPoint:tapPointInWindowCoords toWindow:nil];
     
-    NSLog(@"tapping at (%.2f,%.2f)", tapPointInScreenCoords.x,tapPointInScreenCoords.y);
+    DLog(@"tapping at (%.2f,%.2f)", tapPointInScreenCoords.x,tapPointInScreenCoords.y);
     [[self uia] sendTap:tapPointInScreenCoords];
     
     return tapPointInScreenCoords;
@@ -63,7 +64,7 @@
 }
 
 + (CGPoint) downPoint:(CGPoint)point{
-    NSLog(@"down at (%.2f,%.2f)", point.x,point.y);
+    DLog(@"down at (%.2f,%.2f)", point.x,point.y);
     [[self uia] touchDown:point];
     return point;
 }
@@ -78,7 +79,7 @@
 }
 
 + (CGPoint) upPoint:(CGPoint)point{
-    NSLog(@"up at (%.2f,%.2f)", point.x,point.y);
+    DLog(@"up at (%.2f,%.2f)", point.x,point.y);
     [[self uia] liftUp:point];
     return point;
 }
@@ -89,7 +90,7 @@
 
 + (CGPoint) longTapView:(UIView *)view atPoint:(CGPoint)point forDuration:(NSTimeInterval)duration{
     CGPoint tapPoint = [view convertPoint:point toView:nil];
-    NSLog(@"long tapping at (%.2f,%.2f) for %.1f seconds", tapPoint.x,tapPoint.y, duration);
+    DLog(@"long tapping at (%.2f,%.2f) for %.1f seconds", tapPoint.x,tapPoint.y, duration);
     [self longTapPoint:tapPoint forDuration:duration];
     return tapPoint;
 }
@@ -107,7 +108,7 @@
 
 + (CGPoint) doubleTapView:(UIView *)view atPoint:(CGPoint)point{
     CGPoint tapPoint = [view convertPoint:point toView:nil];
-    NSLog(@"double tapping at (%.2f,%.2f)", tapPoint.x,tapPoint.y);
+    DLog(@"double tapping at (%.2f,%.2f)", tapPoint.x,tapPoint.y);
     return [self doubleTapPoint:tapPoint];
 }
 
@@ -118,7 +119,7 @@
 }
 
 + (void) dragFromPoint:(CGPoint)startPoint toPoint:(CGPoint)destPoint duration:(NSTimeInterval)duration{
-    NSLog(@"dragging from (%.2f,%.2f) to (%.2f,%.2f) with duration %f", startPoint.x,startPoint.y,destPoint.x,destPoint.y,duration);
+    DLog(@"dragging from (%.2f,%.2f) to (%.2f,%.2f) with duration %f", startPoint.x,startPoint.y,destPoint.x,destPoint.y,duration);
     
     CGPoint dragDelta = CGPointMake(destPoint.x-startPoint.x, destPoint.y-startPoint.y);
     
