@@ -168,20 +168,28 @@
 //swipes weren't detected properly. But we were using a different approach to touch simulation then,
 //so this might now be unnecessary.
 #define BIG_RATIO (0.3)
+#define BIG_RATIO_IOS7 (0.4)
 #define SMALL_RATIO (0.05)
 #define SWIPE_DURATION (0.1)
 
 //returns what portion of the view to swipe along in the x and y axes.
 CGSize swipeRatiosForDirection(PADirection direction){
+    CGFloat bigRatio = BIG_RATIO;
+    
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0)
+    {
+        bigRatio = BIG_RATIO_IOS7;
+    }
+    
     switch (direction) {
         case PADirectionLeft:
-            return CGSizeMake(-BIG_RATIO, SMALL_RATIO);
+            return CGSizeMake(-bigRatio, SMALL_RATIO);
         case PADirectionRight:
-            return CGSizeMake(BIG_RATIO, SMALL_RATIO);
+            return CGSizeMake(bigRatio, SMALL_RATIO);
         case PADirectionUp:
-            return CGSizeMake(SMALL_RATIO, -BIG_RATIO);
+            return CGSizeMake(SMALL_RATIO, -bigRatio);
         case PADirectionDown:
-            return CGSizeMake(SMALL_RATIO, BIG_RATIO);
+            return CGSizeMake(SMALL_RATIO, bigRatio);
         default:
             [NSException raise:@"invalid swipe direction" format:@"swipe direction '%i' is invalid", direction];
             return CGSizeZero; // just here to stop the compiler whining.
