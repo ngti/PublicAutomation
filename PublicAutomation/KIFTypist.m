@@ -12,7 +12,7 @@
 #import "CGGeometry-KIFAdditions.h"
 #import "PALogging.h"
 
-const NSTimeInterval KEYSTROKE_DELAY = 0.05f;
+const NSTimeInterval KEYSTROKE_DELAY = 0.1f;
 
 @interface KIFTypist()
 + (NSString *)_representedKeyboardStringForCharacter:(NSString *)characterString;
