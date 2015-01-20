@@ -47,6 +47,7 @@ typedef enum  {
 
 + (void) dragViewWithInitialDelay:(UIView *)view toPoint:(CGPoint)destPoint duration:(NSTimeInterval)duration;
 + (void) dragViewWithInitialDelay:(UIView *)view toPoint:(CGPoint)destPoint;
++ (void) dragFromX:(CGFloat)fromX fromY:(CGFloat)fromY toX:(CGFloat)toX toY:(CGFloat)toY;
 
 + (NSArray *) swipeView:(UIView *)view inDirection:(PADirection)dir;
 

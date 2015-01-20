@@ -148,6 +148,13 @@
     [self dragFromPoint:startPoint toPoint:destPoint duration:duration];
 }
 
++ (void) dragFromX:(CGFloat)fromX fromY:(CGFloat)fromY toX:(CGFloat)toX toY:(CGFloat)toY
+{
+    CGPoint startPoint = CGPointMake(fromX, fromY);
+    CGPoint endPoint = CGPointMake(toX, toY);
+    [self dragFromPoint:startPoint toPoint:endPoint duration:DEFAULT_DRAG_DURATION];
+}
+
 + (void) setOrientation:(UIDeviceOrientation)orientation{
     [[self uia] setOrientation:(int)orientation];
 }
